@@ -17,8 +17,7 @@ export interface BudgetProps {
 }
 
 export function Budget({ diff, trend, sx, value }: BudgetProps): React.JSX.Element {
-  const TrendIcon = trend === 'up' ? ArrowUpIcon : ArrowDownIcon;
-  const trendColor = trend === 'up' ? 'var(--mui-palette-success-main)' : 'var(--mui-palette-error-main)';
+  const trendColor = 'var(--mui-palette-success-main)';
 
   return (
     <Card sx={sx}>
@@ -27,7 +26,7 @@ export function Budget({ diff, trend, sx, value }: BudgetProps): React.JSX.Eleme
           <Stack direction="row" sx={{ alignItems: 'flex-start', justifyContent: 'space-between' }} spacing={3}>
             <Stack spacing={1}>
               <Typography color="text.secondary" variant="overline">
-                Budget
+                Área
               </Typography>
               <Typography variant="h4">{value}</Typography>
             </Stack>
@@ -38,13 +37,12 @@ export function Budget({ diff, trend, sx, value }: BudgetProps): React.JSX.Eleme
           {diff ? (
             <Stack sx={{ alignItems: 'center' }} direction="row" spacing={2}>
               <Stack sx={{ alignItems: 'center' }} direction="row" spacing={0.5}>
-                <TrendIcon color={trendColor} fontSize="var(--icon-fontSize-md)" />
                 <Typography color={trendColor} variant="body2">
-                  {diff}%
+                  {diff}
                 </Typography>
               </Stack>
               <Typography color="text.secondary" variant="caption">
-                Since last month
+                Processos
               </Typography>
             </Stack>
           ) : null}

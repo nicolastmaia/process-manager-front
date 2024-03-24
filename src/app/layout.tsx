@@ -3,7 +3,9 @@ import type { Viewport } from 'next';
 
 import '@/styles/global.css';
 
+import { AreaProvider } from '@/contexts/area-context';
 import { UserProvider } from '@/contexts/user-context';
+import { AreasGuard } from '@/components/auth/areas-guard';
 import { LocalizationProvider } from '@/components/core/localization-provider';
 import { ThemeProvider } from '@/components/core/theme-provider/theme-provider';
 
@@ -19,7 +21,11 @@ export default function Layout({ children }: LayoutProps): React.JSX.Element {
       <body>
         <LocalizationProvider>
           <UserProvider>
-            <ThemeProvider>{children}</ThemeProvider>
+            <AreaProvider>
+              <AreasGuard>
+                <ThemeProvider>{children}</ThemeProvider>
+              </AreasGuard>
+            </AreaProvider>
           </UserProvider>
         </LocalizationProvider>
       </body>
