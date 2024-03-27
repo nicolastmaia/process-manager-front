@@ -10,13 +10,9 @@
 
 # production
 /build
-out
-.next
 
 # misc
 .DS_Store
-.eslintcache
-.idea
 /.env
 /.env.local
 /.env.development.local
